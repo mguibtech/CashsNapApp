@@ -1,17 +1,17 @@
 import React from 'react';
-
 import {SafeAreaView} from 'react-native';
-import {Text} from './src/components/Text/Text';
+import {Button} from './src/components/Button/Button';
+import {ThemeProvider} from '@shopify/restyle';
+import {theme} from './src/theme/theme';
 
 function App(): React.JSX.Element {
   return (
-    <SafeAreaView>
-      <Text preset="paragraphCaption">Testando novo componente</Text>
-      <Text preset="headingLarge">Testando novo componente</Text>
-      <Text preset="paragraphCaption" italic bold>
-        Testando novo componente
-      </Text>
-    </SafeAreaView>
+    <ThemeProvider theme={theme}>
+      <SafeAreaView>
+        <Button title="Teste" mb="s10" preset="primary" disabled />
+        <Button title="Teste" preset="outline" loading />
+      </SafeAreaView>
+    </ThemeProvider>
   );
 }
 
